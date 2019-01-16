@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Create{% if user %}|{{ user.username }}{% endif %}
+{% endblock %}
+
+{% block content %}
+	<h1>Task{% if user %} of {{ user.username }}{% endif %}</h1>
+	{% include 'board/includes/task.html' %}
+	<a href="{% url 'board:index' %}">Board</a>
+{% endblock %}

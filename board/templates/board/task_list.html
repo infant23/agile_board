@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Board{% if user %}|{{ user.username }}{% endif %}
+{% endblock %}
+
+{% block content %}
+	<h1>Tasks board{% if user %} of {{ user.username }}{% endif %}</h1>
+	<h3>To Do List</h3>
+	{% if tasks_todo %}
+		{% for task in tasks_todo %}
+			{% include 'board/includes/task.html' %}
+		{% endfor %}
+	{% else %}
+		<p>There are nothing To Do</p>
+	{% endif %}
+	<a href="{% url 'board:task_create_url' %}">Create</a>
+	<h3>In Progress List</h3>
+	{% if tasks_now %}
+		{% for task in tasks_now %}
+			{% include 'board/includes/task.html' %}
+		{% endfor %}
+	{% else %}
+		<p>There are nothing In Progress</p>
+	{% endif %}
+	<h3>Done List</h3>
+	{% if tasks_done %}
+		{% for task in tasks_done %}
+			{% include 'board/includes/task.html' %}
+		{% endfor %}
+	{% else %}
+		<p>There are nothing Done</p>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Create{% if user %}|{{ user.username }}{% endif %}
+{% endblock %}
+
+{% block content %}
+	<h1>Create new task{% if user %} of {{ user.username }}{% endif %}</h1>
+	<form action="{% url 'board:task_create_url' %}" method="post">
+		{% csrf_token %}
+		{% for field in form %}
+			<div>
+				{% if field.errors %}
+					<div>
+						{{ field.errors }}
+					</div>
+				{% endif %}
+				{{ field.label }}
+				{{ field }}
+			</div>
+		{% endfor %}
+		<button type="submit">Create task</button>		
+	</form>
+	<a href="{% url 'board:index' %}">Board</a>
+{% endblock %}
