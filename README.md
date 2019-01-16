@@ -10,3 +10,8 @@ User should be able to:
 
 ### Prepeare enviropment:
 python3 -m venv myvenv && source myvenv/bin/activate && pip install -r requirements.txt
+
+### Superuser:
+Login:			admin
+Email:			infant23@ex.ua
+Pass:			q1w2e3r4
