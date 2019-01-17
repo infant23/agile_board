@@ -3,11 +3,11 @@ from .models import Task
 from django.core.exceptions import ValidationError
 
 
-class TaskForm(forms.ModelForm):
+class TaskTextForm(forms.ModelForm):
 
 	class Meta:
 		model = Task
-		fields = ['user_id', 'content', 'state']
+		fields = ['content']
 
 		widgets = {
 			'content': forms.Textarea(attrs={'class': 'form-control'})

@@ -1,5 +1,20 @@
 <p>{{ task.pub_date }}</p>
 <p>{{ task.content }}</p>
 <a href="{{ task.get_update_url }}">Update</a>
-<a href="{{ task.get_detail_url }}">Detail</a>
-<a href="{{ task.get_delete_url }}">Delete</a>
+
+<form action="{{ task.get_delete_url }}" method="post">
+	{% csrf_token %}
+	<button type="submit">Delete</button>		
+</form>
+<form action="{{ task.get_leave_url }}" method="post">
+	{% csrf_token %}
+	<button type="submit">Leave</button>		
+</form>
+<form action="{{ task.get_process_url }}" method="post">
+	{% csrf_token %}
+	<button type="submit">Process</button>		
+</form>
+<form action="{{ task.get_done_url }}" method="post">
+	{% csrf_token %}
+	<button type="submit">Done</button>		
+</form>
