@@ -5,6 +5,8 @@ from .views import *
 app_name = 'board'
 urlpatterns = [
 	path('', TaskList.as_view(), name='index'),
+	path('login/', CustomLoginView.as_view(), name='login'),
+	path('logout/', CustomLogoutView.as_view(), name='logout'),
 	path('<int:pk>/update/', TaskUpdate.as_view(), name='task_update_url'),
 	path('<int:pk>/delete/', TaskDelete.as_view(), name='task_delete_url'),
 	path('<int:pk>/leave/', TaskLeave.as_view(), name='task_leave_url'),

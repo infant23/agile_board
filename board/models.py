@@ -33,5 +33,5 @@ class Task(models.Model):
 	def __str__(self):
 		return self.content
 
-		class Meta:
-			ordering = ['-pub_date']
+	class Meta:
+		ordering = ['-pub_date']
