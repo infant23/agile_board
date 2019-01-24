@@ -7,8 +7,10 @@
 	margin: 0;
 }
 body {
+	min-height: 100vh;
 	display: grid;
 	grid-template-columns: 0.5fr 25% 25% 25% 0.5fr;
+	grid-template-rows: 65px auto auto 50px;
 	grid-template-areas:
 		". header header header ."
 	    ". form form form ."
@@ -30,6 +32,8 @@ section {
 }
 section.form {
 	grid-area: form;
+	text-align: center;
+	padding: 15px;
 }
 section.todo {
 	grid-area: todo;
@@ -47,7 +51,7 @@ section h3 {
 	padding: 15px;
 }
 section .wrapper {
-	padding: 15px;
+	padding: 5px;
 }
 footer {
 	grid-area: footer;
@@ -59,8 +63,14 @@ header h1 {
 	float: left;
 }
 textarea {
-	width: 100%;
-	float: none;
+	width: 90%;
+	height: 50px;
+	padding: 2px;
+	border-radius: 2px;
+}
+textarea:focus {
+	border: solid 1px #00f;
+	border-radius: 2px;
 }
 .card {
 	border: solid 2px #aaa;
@@ -70,29 +80,32 @@ textarea {
 }
 .card .date {
 	text-align: right;
-	margin: 10px;
+	margin: 5px;
 }
 .content {
-	background-color: #eee;
+	background-color: #ddd;
 	padding: 5px;
 	border-top: solid 2px #aaa;
 	border-bottom: solid 2px #aaa;
 }
 .controll {
 	padding: 5px;
-	/*float: left;*/
-}
-.controll form {
-	display: inline-block;
-	height: 50px;
 }
 button {
-	width: 80px;
-	height: 30px;
+	width: 100%;
+	height: 25px;
+}
+.form button {
+	width: 90%;
+	margin-top: 15px;
+}
+button.logout {
+	width: 100px;
+	height: 35px;
 }
 span.icon {
 	font-family: LigatureSymbols;
-	font-weight: bold;
+	font-weight: normal;
 	color: #00f;
 	margin: 15px;
 }
@@ -105,10 +118,11 @@ table {
 	width: 40%;
 	margin-left: 30%;
 }
-td {
-	padding: 5px;
-}
 .alert {
+	width: 100%;
 	background: #f8e0e0;
-	/*padding: 5px;*/
+	margin: 2px;
+}
+.alert p {
+	border: solid 1px red;
 }

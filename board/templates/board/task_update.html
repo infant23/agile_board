@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Update{% if user %}|{{ user.username }}{% endif %}
+	Update{% if user %} | {{ user.username }}{% endif %}
 {% endblock %}
 
 {% block content %}
 	<section class="form">
-		<h3>Update task</h3>
 		<div class="wrapper">
 			<form action="{{ task.get_update_url }}" method="post">
 				{% csrf_token %}
@@ -14,7 +13,7 @@
 					{{ form.content.errors }}
 				{% endif %}
 				{{ form.content }}
-				<button type="submit">Update it</button>		
+				<button type="submit">Update this task now</button>		
 			</form>
 		</div>
 	</section>

@@ -16,8 +16,6 @@ class TaskList(LoginRequiredMixin, View):
 	template = 'board/index.html'
 	page = 'board:index'
 	login_url = 'board:login'
-	# redirect_field_name = 'board:login'
-	# raise_exception = True
 
 	def get(self, request):
 		lst = self.model.objects.filter(user_id=request.user)
@@ -100,14 +98,17 @@ class TaskDelete(LoginRequiredMixin, View):
 
 
 class TaskLeave(ChangeStateMixin):
+	model = Task
 	state = "T"
 
 
 class TaskProcess(ChangeStateMixin):
+	model = Task
 	state = "P"
 
 
 class TaskDone(ChangeStateMixin):
+	model = Task
 	state = "D"
 
 

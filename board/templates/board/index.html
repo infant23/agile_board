@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Board{% if user %}|{{ user.username }}{% endif %}
+	Board{% if user %} | {{ user.username }}{% endif %}
 {% endblock %}
 
 {% block content %}
 	<section class="form">
-		<h3>Create new task</h3>
 		<div class="wrapper">
 			<form action="{% url 'board:index' %}" method="post">
 				{% csrf_token %}
@@ -16,7 +15,7 @@
 					{% endif %}
 				</div>
 				{{ form.content }}
-				<button type="submit">Create it</button>		
+				<button type="submit">Create new task now</button>		
 			</form>
 		</div>
 	</section>

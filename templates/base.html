@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 	<title>
 		{% block title%}
-			Title
+			Board
 		{% endblock %}
 	</title>
 </head>
@@ -18,18 +18,18 @@
 		<a href="{% url 'board:index' %}" title="Board">
 			<h1><span class="icon">&#xe048</span></h1>
 		</a>
-		<h1>Task board of {{ user.username }}</h1>
 		{% if user.is_authenticated %}
+			<h1>Task board of {{ user.username }}</h1>
 			<a href="{% url 'board:logout' %}">
-				<button>Logout</button>
+				<button class="logout">Logout</button>
 			</a>
+		{% else %}
+			<h1>Task board</h1>
 		{% endif %}
 	</header>
-	<!-- <main> -->
-		{% block content %}
-			There no any tasks yet
-		{% endblock %}
-	<!-- </main> -->
+	{% block content %}
+		There no any tasks yet
+	{% endblock %}
 	<footer>
 		<p><a href="mailto:infant23@ex.ua">infant23@ex.ua</a> <span class="copyleft">&copy;</span> 2019</p>
 	</footer>

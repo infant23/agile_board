@@ -13,10 +13,13 @@ User should be able to:
 
 ### Prepeare enviropment:
 
-		python3 -m venv myvenv && source myvenv/bin/activate && pip install -r requirements.txt
+		python3 -m venv myvenv
+		source myvenv/bin/activate
+		pip install -r requirements.txt
 
 ### Starting server:
 
+		source myvenv/bin/activate
 		python manage.py runserver 0:8000
 
 ### Superuser:
@@ -24,8 +27,13 @@ User should be able to:
 Login:
 		admin
 
-Email:
-		infant23@ex.ua
-
 Pass:
 		q1w2e3r4
+
+### Regular user:
+
+Login:
+		user
+
+Pass:
+		user_pass

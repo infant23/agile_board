@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Board|Login
+    Board | Login
 {% endblock %}
 
 {% block content %}
     <section class="form">
         <form method="post" action="{% url 'board:login' %}">
             {% csrf_token %}
-            <table>
+            <table class="login">
                 <tr>
                     <td colspan="2">
                         <div class="alert">

@@ -9,14 +9,10 @@
 		<a href="{{ task.get_update_url }}">
 			<button>Update</button>
 		</a>
-		<form action="{{ task.get_delete_url }}" method="post">
-			{% csrf_token %}
-			<button type="submit">Delete</button>		
-		</form>
 		{% if task.state == "P" %}
 			<form action="{{ task.get_leave_url }}" method="post">
 				{% csrf_token %}
-				<button type="submit">Leave</button>		
+				<button type="submit">Back</button>		
 			</form>
 		{% endif %}
 		{% if task.state == "T" or task.state == "D" %}
@@ -31,5 +27,9 @@
 				<button type="submit">Done</button>		
 			</form>
 		{% endif %}
+		<form action="{{ task.get_delete_url }}" method="post">
+			{% csrf_token %}
+			<button type="submit">Delete</button>		
+		</form>
 	</div>
 </div>
