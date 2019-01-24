@@ -5,22 +5,18 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Update task{% if user %} of {{ user.username }}{% endif %}</h1>
-	<form action="{{ task.get_update_url }}" method="post">
-		{% csrf_token %}
-		{% for field in form %}
-			<div>
-				{% if field.errors %}
-					<div>
-						{{ field.errors }}
-					</div>
+	<section class="form">
+		<h3>Update task</h3>
+		<div class="wrapper">
+			<form action="{{ task.get_update_url }}" method="post">
+				{% csrf_token %}
+				{% if form.content.errors %}
+					{{ form.content.errors }}
 				{% endif %}
-				{{ field.label }}
-				{{ field }}
-			</div>
-		{% endfor %}
-		<button type="submit">Update task</button>		
-	</form>
-	<a href="{% url 'board:index' %}">Board</a>
+				{{ form.content }}
+				<button type="submit">Update it</button>		
+			</form>
+		</div>
+	</section>
 	{% include 'board/includes/board.html' %}
 {% endblock %}

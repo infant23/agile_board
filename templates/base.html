@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 	<title>
 		{% block title%}
 			Title
@@ -11,11 +14,24 @@
 	</title>
 </head>
 <body>
-	<div">
-		<a href="{% url 'board:logout' %}">Logout</a>
+	<header>
+		<a href="{% url 'board:index' %}" title="Board">
+			<h1><span class="icon">&#xe048</span></h1>
+		</a>
+		<h1>Task board of {{ user.username }}</h1>
+		{% if user.is_authenticated %}
+			<a href="{% url 'board:logout' %}">
+				<button>Logout</button>
+			</a>
+		{% endif %}
+	</header>
+	<!-- <main> -->
 		{% block content %}
 			There no any tasks yet
 		{% endblock %}
-	</div>
+	<!-- </main> -->
+	<footer>
+		<p><a href="mailto:infant23@ex.ua">infant23@ex.ua</a> <span class="copyleft">&copy;</span> 2019</p>
+	</footer>
 </body>
 </html>

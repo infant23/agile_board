@@ -1,20 +1,35 @@
-<p>{{ task.pub_date }}</p>
-<p>{{ task.content }}</p>
-<a href="{{ task.get_update_url }}">Update</a>
-
-<form action="{{ task.get_delete_url }}" method="post">
-	{% csrf_token %}
-	<button type="submit">Delete</button>		
-</form>
-<form action="{{ task.get_leave_url }}" method="post">
-	{% csrf_token %}
-	<button type="submit">Leave</button>		
-</form>
-<form action="{{ task.get_process_url }}" method="post">
-	{% csrf_token %}
-	<button type="submit">Process</button>		
-</form>
-<form action="{{ task.get_done_url }}" method="post">
-	{% csrf_token %}
-	<button type="submit">Done</button>		
-</form>
+<div class="card">
+	<div class="date">
+		{{ task.pub_date }}
+	</div>
+	<div class="content">
+		<p>{{ task.content }}</p>
+	</div>
+	<div class="controll">
+		<a href="{{ task.get_update_url }}">
+			<button>Update</button>
+		</a>
+		<form action="{{ task.get_delete_url }}" method="post">
+			{% csrf_token %}
+			<button type="submit">Delete</button>		
+		</form>
+		{% if task.state == "P" %}
+			<form action="{{ task.get_leave_url }}" method="post">
+				{% csrf_token %}
+				<button type="submit">Leave</button>		
+			</form>
+		{% endif %}
+		{% if task.state == "T" or task.state == "D" %}
+			<form action="{{ task.get_process_url }}" method="post">
+				{% csrf_token %}
+				<button type="submit">Process</button>		
+			</form>
+		{% endif %}
+		{% if task.state == "P" %}
+			<form action="{{ task.get_done_url }}" method="post">
+				{% csrf_token %}
+				<button type="submit">Done</button>		
+			</form>
+		{% endif %}
+	</div>
+</div>

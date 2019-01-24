@@ -4,8 +4,6 @@ from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
 
-# from django.http import Http404, HttpResponse, HttpResponseRedirect
-
 
 from .models import Task
 from .forms import TaskTextForm
